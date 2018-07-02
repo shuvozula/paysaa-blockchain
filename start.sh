@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+if [ ! -d "bitshares-core/" ]; then
+	git clone https://github.com/shuvozula/bitshares-core.git
+fi
+
+if [ ! -d "bitshares-ui/" ]; then
+	git clone https://github.com/shuvozula/bitshares-ui.git
+fi
+
 echo "Creating core docker image...."
 cd bitshares-core/
 docker build -t core .
