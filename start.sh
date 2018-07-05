@@ -19,4 +19,7 @@ docker build -t ui .
 cd -
 
 echo "Starting services...."
-docker-compose up
+docker-compose \
+	-f docker-compose-nodes.yml \
+	-f docker-compose-ui.yml \
+	up

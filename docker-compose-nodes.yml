@@ -1,0 +1,42 @@
+version: '3'
+
+volumes:
+  bitshares-fullnode:
+  bitshares-delayed_node:
+
+services:
+  
+  fullnode:
+    container_name: fullnode
+    #dns: 192.168.99.100
+    image: core
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+      - "37672:37672"
+      - "2001:2001"
+    volumes:
+      - "bitshares-fullnode:/var/lib/bitshares"
+      - "./bitshares-core/docker:/etc/bitshares"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+
+  delayed_node:
+    container_name: delayed_node
+    image: core
+    ports:
+      - "8081:8080"
+      - "8091:8090"
+      - "37673:37672"
+      - "2002:2001"
+    environment:
+      - 'BITSHARESD_PLUGINS=delayed_node witness'
+      - 'BITSHARESD_TRUSTED_NODE=ws://fullnode:8090'
+    volumes:
+      - "bitshares-delayed_node:/var/lib/bitshares"
+      - "./bitshares-core/docker:/etc/bitshares"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    links:
+      - fullnode
+
