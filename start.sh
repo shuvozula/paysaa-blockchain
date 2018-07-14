@@ -8,15 +8,19 @@ if [ ! -d "bitshares-ui/" ]; then
 	git clone https://github.com/shuvozula/bitshares-ui.git
 fi
 
-echo "Creating core docker image...."
-cd bitshares-core/
-docker build -t core .
-cd -
+if [[ -z $(docker ps -a | grep fullnode | awk {'print $1'}) ]]; then
+	echo "Creating core docker image...."
+	cd bitshares-core/
+	docker build -t core .
+	cd -
+fi
 
-echo "Creating ui docker image...."
-cd bitshares-ui/
-docker build -t ui .
-cd -
+if [[ -z $(docker ps -a | grep ui | awk {'print $1'}) ]]; then
+	echo "Creating ui docker image...."
+	cd bitshares-ui/
+	docker build -t ui .
+	cd -
+fi
 
 echo "Starting services...."
 docker-compose \
