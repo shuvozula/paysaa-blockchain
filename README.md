@@ -10,6 +10,9 @@ Minimum of *20GB* of memory required, since it runs 2 graphene/bitshares nodes (
 1. [Install](https://docs.docker.com/install/linux/docker-ce/ubuntu/) docker for your platform.
 2. [Install](https://docs.docker.com/compose/install/) docker-compose for your platform.
 
+### Proxy services
+Disable any proxy services, like OpenVPN. These will prevent Docker from creating network interfaces.
+
 ## Fire up the nodes
 
 Run `./start.sh` and that will do the following:
