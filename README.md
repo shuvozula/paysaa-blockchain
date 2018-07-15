@@ -1,4 +1,4 @@
-# Paysaa Blockchain (In Progress)
+# Paysaa Blockchain
 
 ## Prerequisites:
 
