@@ -22,6 +22,6 @@ Run `./start.sh` and that will do the following:
 ```
 $ wscat -c http://localhost:8090
 ```
-* Visit `http://localhost:82` to interact with the UI node and configure it to connect to either of the core nodes (once they're sycnced and their RPC endpoints are active).
+* Visit [http://localhost:82](http://localhost:82) to interact with the UI node and configure it to connect to either of the core nodes (once they're sycnced and their RPC endpoints are active).
 
 NOTE: These endpoints are active only after the nodes are fully synced, which may take a few minutes, to an hour depending on network bandwidth and available system resources.
