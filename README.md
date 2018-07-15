@@ -18,7 +18,7 @@ Run `./start.sh` and that will do the following:
 3. Starts the orchestration of the docker nodes (Full-node, Delayed-Node and UI) using Docker-Compose.
 
 ## Test
-* Once the nodes are fully synced, Use a tool like `wscat` (npm install -g wscat) to test whether the RPC endpoints are active (Fullnode=`localhost:8090`, DelayedNode=`localhost:8091`):
+* Once the nodes are fully synced, Use a tool like `wscat` (`npm install -g wscat`) to test whether the RPC endpoints are active (Fullnode=`localhost:8090`, DelayedNode=`localhost:8091`):
 ```
 $ wscat -c http://localhost:8090
 ```
