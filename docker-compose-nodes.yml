@@ -1,9 +1,5 @@
 version: '3'
 
-volumes:
-  bitshares-fullnode:
-  bitshares-delayed_node:
-
 services:
   
   fullnode:
@@ -36,3 +32,17 @@ services:
       - "bitshares-delayed_node:/var/lib/bitshares"
       - "./bitshares-core/docker:/etc/bitshares"
 
+
+volumes: 
+  bitshares-fullnode: 
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /media/storage/crypto/bitshares/fullnode
+  bitshares-delayed_node: 
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /media/storage/crypto/bitshares/delayed_node
