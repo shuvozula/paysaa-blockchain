@@ -12,6 +12,7 @@ services:
       - "2001:2001"
     environment:
       - 'BITSHARESD_RPC_ENDPOINT=0.0.0.0:8090'
+      - 'BITSHARESD_P2P_ENDPOINT=0.0.0.0:37672'
     volumes:
       - "bitshares-fullnode:/var/lib/bitshares"
       - "./bitshares-core/docker:/etc/bitshares"
@@ -26,6 +27,7 @@ services:
       - "2002:2001"
     environment:
       - 'BITSHARESD_RPC_ENDPOINT=0.0.0.0:8090'
+      - 'BITSHARESD_P2P_ENDPOINT=0.0.0.0:37672'
       - 'BITSHARESD_PLUGINS=delayed_node witness'
       - 'BITSHARESD_TRUSTED_NODE=ws://fullnode:8090'
     volumes:
@@ -39,10 +41,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /media/storage/crypto/bitshares/fullnode
+      device: /media/shuvo/storage/crypto/bitshares/fullnode
   bitshares-delayed_node: 
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /media/storage/crypto/bitshares/delayed_node
+      device: /media/shuvo/storage/crypto/bitshares/delayed_node

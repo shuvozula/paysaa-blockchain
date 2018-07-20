@@ -3,7 +3,10 @@
 ## Prerequisites:
 
 ### Memory
-Minimum of *20GB* of memory required, since it runs 2 graphene/bitshares nodes (full and delayed), as well as the UI node.
+Minimum of *20GB* of memory required, since it runs:
+1. Full Graphene/Bitshare node
+2. Delayed Graphene/Bitshare node.
+3. Graphene/Bitshare UI node powered by Nginx.
 
 ### Docker, Docker-Compose
 
@@ -28,3 +31,6 @@ $ wscat -c http://localhost:8090
 * Visit [http://localhost:82](http://localhost:82) to interact with the UI node and configure it to connect to either of the core nodes (once they're sycnced and their RPC endpoints are active).
 
 NOTE: These endpoints are active only after the nodes are fully synced, which may take a few minutes, to an hour depending on network bandwidth and available system resources.
+
+## Ports
+The ports can be subject to change since they're controlled by `docker-compose-(nodes/ui).yml` files.	
